@@ -1,6 +1,6 @@
 # This is a re-make of "Rocket by 'Creative Computing' "
 
-tab = str('    ')
+tab = str('   ')
 time = 0
 height = 500
 velocity = 50
@@ -35,39 +35,26 @@ if instructions.upper() == "YES":
 else:
     print("BEGINNING LANDING PROCEDURE.......\n")
     print("G O O D   L U C K ! ! !")
-print("SEC"+tab+"FEET"+tab*2+"SPEED"+tab+"FUEL"+tab+"PLOT OF DISTANCE")
-print(str(time)+"  "+tab+str(height)+2*tab+" "+str(velocity)+tab+str(fuel)+tab+"I"+(tab*(int(height/50))+"*"))
-
-# int t=0, height=500, velocity=50, fuel = 120
-
-# If loop with conditionals for height and fuel
+print("SEC"+tab+"FEET"+tab+"SPEED"+tab+"FUEL"+tab+"PLOT OF DISTANCE")
+print(str(time)+"  "+tab+str(height)+tab+" "+str(velocity)+2*tab+str(fuel)+tab+"I"+(tab*(int(height/50))+"*"))
 while height > 0:
-    if fuel > 0:
-        # burn = int(input("?"))
-        velocity1=velocity-burn+5
-        fuel=fuel-burn
-        height=height-.5 * (velocity+velocity1)
-    else:
-        if height <= 0:
-            print()
-    print(str(time)+"  "+tab+str(height)+2*tab+" "+str(velocity)+tab+str(fuel)+tab+"I"+(tab*(int(height/50))+"*"))
+    burn = int(input("?"))
+    if fuel >0:  #TODO: Need to write the else
+        if burn > 30:
+            burn = 30
+        velocity1 = velocity - burn + 5
+        fuel2 = (fuel - burn)
+        fuel = fuel2
+        height = height - .5 * (velocity + velocity1)
+        time += 1
+        velocity = velocity1
+    print(str(time) + "  " + tab + str(height) + tab + " " + str(velocity) + 2 * tab + str(fuel) + tab + "I" + (tab * (int(height / 50)) + "*"))
 
-#get burn
-burn = input("?")
-
-while (1 < burn > 30):
-    velocity1 = velocity- burn + 5
-    fuel = fuel - burn
-    height = height - (.5 * (velocity+velocity1))
     if height <= 0:
-        print("CONTACT")
-    time += 1
-    velocity = velocity1
-    if (fuel > 0 or burn is 0):
-        print(str(time) + "  " + tab + str(height) + 2 * tab + " " + str(velocity) + tab + str(fuel) + tab + "I" + (
-                    tab * (int(height / 50)) + "*"))
-    else:
-        print("****OUT OF FUEL****")
+        print("***** CONTACT *****")
+
+
+
 
 # INPUT B               Get Burn
 # IF B<0 THEN 650       If burn is less then 0 make burn 0
